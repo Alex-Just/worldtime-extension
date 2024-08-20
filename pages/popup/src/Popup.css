@@ -1,4 +1,13 @@
-.App {
+body {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background-color: #424242;
+  color: #d8d7d7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -6,25 +15,134 @@
   right: 0;
   text-align: center;
   height: 100%;
-  padding: 1rem;
+  padding: 0 0 1rem 1rem;
 }
 
-.App-logo {
-  height: 50vmin;
-  margin-bottom: 1rem;
+.time-display {
+  text-align: left;
 }
 
-.App-header {
-  height: 100%;
+.current-time {
+  font-size: 34px;
+  font-weight: 100;
+  color: #a5a5a5;
+  margin-bottom: 3px;
+}
+
+.timeline {
+  cursor: pointer;
+  position: relative;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.timezone {
+  margin-bottom: 20px;
+}
+
+.timezone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1px;
+}
+
+.city-info {
+  text-align: left;
+}
+
+.city {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  margin-right: 4px;
+}
+
+.info {
+  font-size: 16px;
+  font-weight: 400;
+  color: #c1c1c1;
+  margin-left: 4px;
+}
+
+.time {
+  font-size: 16px;
+  color: #fff;
+}
+
+.time-row {
+  display: flex;
+  position: relative;
+  overflow-x: visible;
+  white-space: nowrap;
+  height: 24px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5em;
+  color: rgba(0, 0, 0, 0.87);
+  background: rgb(227, 242, 253);
+  border-bottom: rgb(48, 48, 48);
+}
+
+.hour-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  font-size: 0.75rem;
+  justify-content: center;
+  min-width: 26px;
+  height: 100%; /* Ensure the container takes up the full height */
+  background-color: transparent;
+  position: relative;
+  margin: 0; /* Remove any margin */
+  padding: 0; /* Remove any padding */
+  box-sizing: border-box; /* Include padding and borders in width/height calculations */
 }
 
-code {
-  background: rgba(148, 163, 184, 0.5);
-  border-radius: 0.25rem;
-  padding: 0.2rem 0.5rem;
+.hour {
+  color: #404040;
+  width: 100%; /* Ensure the hour takes up the full width of the container */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px; /* Adjust padding as needed */
+  height: 100%; /* Ensure the hour element takes up the full height of the container */
+  box-sizing: border-box; /* Include padding and borders in width/height calculations */
+}
+
+.new-day {
+  color: #fff;
+  font-size: 10px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 100;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.highlight {
+  background-color: #3d7fdc; /* Primary highlight color */
+  color: #fff;
+}
+
+.midnight-highlight {
+  background-color: #8dc3f6; /* Secondary highlight color for midnight */
+}
+
+.nighttime-highlight {
+  background-color: #b3d6f6; /* Ternary highlight color for 10 PM to 7 AM */
+}
+
+.current-time-indicator {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: transparent;
+  border-left: 2px dotted #27a695;
+  pointer-events: none;
+  z-index: 10;
+  transition: left 0.15s ease-in-out;
 }

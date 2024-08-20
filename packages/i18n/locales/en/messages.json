@@ -1,11 +1,11 @@
 {
   "extensionDescription": {
     "description": "Extension description",
-    "message": "Chrome extension boilerplate developed with Vite, React and Typescript"
+    "message": "Worldtime extension for Google Chrome and Firefox"
   },
   "extensionName": {
     "description": "Extension name",
-    "message": "Chrome extension boilerplate"
+    "message": "Worldtime extension for Google Chrome and Firefox"
   },
   "toggleTheme": {
     "message": "Toggle theme"

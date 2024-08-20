@@ -1,63 +1,56 @@
+import React from 'react';
+import moment from 'moment-timezone';
+
 import '@src/Popup.css';
-import { useStorageSuspense, withErrorBoundary, withSuspense } from '@extension/shared';
-import { exampleThemeStorage } from '@extension/storage';
-import type { ComponentPropsWithoutRef } from 'react';
+import { TimeZoneDisplay, CurrentTime } from '@src/components';
+import { useTimelineClick } from '@src/hooks/useTimelineClick';
+import { useHandleKeyDown } from '@src/hooks/useHandleKeyDown';
+import { generateUserHourMoments } from '@src/utils/timeUtils';
 
 const Popup = () => {
-  const theme = useStorageSuspense(exampleThemeStorage);
-  const isLight = theme === 'light';
-  const logo = isLight ? 'popup/logo_vertical.svg' : 'popup/logo_vertical_dark.svg';
+  const userTimezone: string = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const userHourMoments = generateUserHourMoments(userTimezone);
+  const currentTime = moment().tz(userTimezone);
+  const userHour = currentTime.hour();
+  const userMinute = currentTime.minute();
 
-  const injectContentScript = async () => {
-    const [tab] = await chrome.tabs.query({ currentWindow: true, active: true });
+  const initialPosition = ((userHour * 60 + userMinute) / (24 * 60)) * 100;
+  const { indicatorPosition, handleTimelineClick } = useTimelineClick(initialPosition);
 
-    await chrome.scripting
-      .executeScript({
-        target: { tabId: tab.id! },
-        files: ['/content-runtime/index.iife.js'],
-      })
-      .catch(err => {
-        if (err.message.includes('Cannot access a chrome:// URL')) {
-          alert('You cannot inject script here!');
-        }
-      });
-  };
+  const timezones = [
+    { timezone: 'US/Pacific', city: 'San Francisco', info: 'US/Pacific PST UTC-07:00 DST', isUserTimezone: false },
+    { timezone: 'America/Denver', city: 'Denver', info: 'America/Denver MST UTC-06:00 DST', isUserTimezone: false },
+    {
+      timezone: 'America/New_York',
+      city: 'New York',
+      info: 'America/New_York EST UTC-04:00 DST',
+      isUserTimezone: false,
+    },
+    { timezone: 'UTC', city: 'UTC', info: 'Universal UTC UTC+00:00', isUserTimezone: false },
+    { timezone: 'Europe/Madrid', city: 'Madrid', info: 'Europe/Madrid CET UTC+02:00 DST', isUserTimezone: true },
+    { timezone: 'Europe/Moscow', city: 'Moscow', info: 'Europe/Moscow MSK UTC+03:00', isUserTimezone: false },
+    { timezone: 'Asia/Kolkata', city: 'India', info: 'Asia/Kolkata IST UTC+05:30', isUserTimezone: false },
+  ];
+
+  const handleKeyDown = useHandleKeyDown();
 
   return (
-    <div className={`App ${isLight ? 'bg-slate-50' : 'bg-gray-800'}`}>
-      <header className={`App-header ${isLight ? 'text-gray-900' : 'text-gray-100'}`}>
-        <img src={chrome.runtime.getURL(logo)} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>pages/popup/src/Popup.tsx</code>
-        </p>
-        <button
-          className={
-            'font-bold mt-4 py-1 px-4 rounded shadow hover:scale-105 ' +
-            (isLight ? 'bg-blue-200 text-black' : 'bg-gray-700 text-white')
-          }
-          onClick={injectContentScript}>
-          Click to inject Content Script
-        </button>
-        <ToggleButton>Toggle theme</ToggleButton>
-      </header>
+    <div className="container">
+      <CurrentTime />
+      <div className="timeline" role="button" tabIndex={0} onClick={handleTimelineClick} onKeyDown={handleKeyDown}>
+        {timezones.map(({ timezone, city, info }) => (
+          <TimeZoneDisplay
+            key={timezone}
+            timezone={timezone}
+            city={city}
+            info={info}
+            userHourMoments={userHourMoments}
+          />
+        ))}
+        <div className="current-time-indicator" style={{ left: `${indicatorPosition}%` }}></div>
+      </div>
     </div>
   );
 };
 
-const ToggleButton = (props: ComponentPropsWithoutRef<'button'>) => {
-  const theme = useStorageSuspense(exampleThemeStorage);
-  return (
-    <button
-      className={
-        props.className +
-        ' ' +
-        'font-bold mt-4 py-1 px-4 rounded shadow hover:scale-105 ' +
-        (theme === 'light' ? 'bg-white text-black shadow-black' : 'bg-black text-white')
-      }
-      onClick={exampleThemeStorage.toggle}>
-      {props.children}
-    </button>
-  );
-};
-
-export default withErrorBoundary(withSuspense(Popup, <div> Loading ... </div>), <div> Error Occur </div>);
+export default Popup;
