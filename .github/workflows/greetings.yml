@@ -4,6 +4,7 @@ on: [pull_request_target, issues]
 
 jobs:
   greeting:
+    if: github.actor != 'dependabot[bot]' && github.actor != 'Alex-Just'
     runs-on: ubuntu-latest
     permissions:
       issues: write
