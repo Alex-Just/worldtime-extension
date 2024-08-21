@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Moment } from 'moment-timezone';
 
-import { useTimeZone } from '@src/hooks/useTimeZone';
-import { convertUserHourMoments, dayLabel, getHourClass } from '@src/utils/timeZoneUtils';
+import { useTimeZone } from '@src/hooks';
+import { convertUserHourMoments, dayLabel, getHourClass } from '@src/utils';
 
 interface TimeZoneDisplayProps {
   timezone: string;

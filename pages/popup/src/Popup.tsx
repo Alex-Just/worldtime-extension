@@ -3,9 +3,8 @@ import moment from 'moment-timezone';
 
 import '@src/Popup.css';
 import { TimeZoneDisplay, CurrentTime } from '@src/components';
-import { useTimelineClick } from '@src/hooks/useTimelineClick';
-import { useHandleKeyDown } from '@src/hooks/useHandleKeyDown';
-import { generateUserHourMoments } from '@src/utils/timeUtils';
+import { useTimelineClick, useHandleKeyDown } from '@src/hooks';
+import { generateUserHourMoments } from '@src/utils';
 
 const Popup = () => {
   const userTimezone: string = Intl.DateTimeFormat().resolvedOptions().timeZone;
