@@ -22,3 +22,5 @@ export const useTimelineClick = (initialPosition: number) => {
     handleTimelineClick,
   };
 };
+
+export default useTimelineClick;

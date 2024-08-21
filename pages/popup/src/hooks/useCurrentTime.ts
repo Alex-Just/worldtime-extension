@@ -15,3 +15,5 @@ export const useCurrentTime = () => {
 
   return currentTime;
 };
+
+export default useCurrentTime;

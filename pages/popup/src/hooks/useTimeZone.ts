@@ -20,3 +20,5 @@ export const useTimeZone = (timezone: string) => {
 
   return { time, currentHour };
 };
+
+export default useTimeZone;

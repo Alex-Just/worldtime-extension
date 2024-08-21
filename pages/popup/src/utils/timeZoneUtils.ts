@@ -24,7 +24,7 @@ export const getHourClass = (datetime: Moment, currentHour: number): string => {
   if (datetime.hour() === 0) {
     return 'midnight-highlight'; // Secondary color for midnight
   }
-  if (datetime.hour() >= 22 || datetime.hour() < 7) {
+  if (datetime.hour() >= 22 || datetime.hour() <= 7) {
     return 'nighttime-highlight'; // Ternary color for 10 PM to 7 AM
   }
   return '';
