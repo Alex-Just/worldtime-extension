@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import moment from 'moment-timezone';
 
-export const useTimeZone = (timezone: string) => {
+const useTimeZone = (timezone: string) => {
   const [time, setTime] = useState<string>('');
   const [currentHour, setCurrentHour] = useState<number>(moment().tz(timezone).hour());
 

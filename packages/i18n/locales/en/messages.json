@@ -5,7 +5,7 @@
   },
   "extensionName": {
     "description": "Extension name",
-    "message": "Worldtime extension for Google Chrome and Firefox"
+    "message": "Worldtime"
   },
   "toggleTheme": {
     "message": "Toggle theme"

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import type { Moment } from 'moment-timezone';
 import moment from 'moment-timezone';
 
-export const useCurrentTime = () => {
+const useCurrentTime = () => {
   const [currentTime, setCurrentTime] = useState<Moment>(moment());
 
   useEffect(() => {

@@ -17,9 +17,17 @@
     "prettier": "prettier . --write --ignore-path ../../.prettierignore",
     "type-check": "tsc --noEmit"
   },
-  "dependencies": {},
+  "dependencies": {
+    "moment-timezone": "^0.5.45",
+    "@mui/icons-material": "^5.16.7",
+    "@mui/material": "^5.16.7",
+    "@types/material-ui": "^0.21.17",
+    "material-design-icons": "^3.0.1",
+    "material-ui-icons": "1.0.0-beta.36"
+  },
   "devDependencies": {
     "@extension/storage": "workspace:*",
-    "@extension/tsconfig": "workspace:*"
+    "@extension/tsconfig": "workspace:*",
+    "@types/moment-timezone": "^0.5.30"
   }
 }

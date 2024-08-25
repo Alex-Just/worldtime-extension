@@ -1,26 +1,344 @@
-#app-container {
-  text-align: center;
-  width: 100vw;
-  height: 100vh;
+/* Define CSS Variables */
+:root {
+    --background-dark: #424242;
+    --background-light: #f5f5f5;
+    --text-light: #E0E0E0;
+    --text-dark: #333;
+    --border-color: #595959;
+    --hover-bg: #505050;
+    --selected-bg: #595959;
+    --button-bg: #007BFF;
+    --button-hover-bg: #0056b3;
+    --input-bg: #2C2C2C;
+    --input-border: #444;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* General Styles */
+body {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
-.App-container {
-  width: 100vw;
-  height: 100vh;
-  font-size: calc(10px + 2vmin);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.container {
+    text-align: left;
+    max-width: 820px;
+    margin: 20px auto;
+    padding: 16px;
+    background-color: var(--background-dark);
+    padding-bottom: 50px;
 }
 
-code {
-  background: rgba(148, 163, 184, 0.5);
-  border-radius: 0.25rem;
-  padding: 0.2rem 0.5rem;
+.light-theme {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+.dark-theme {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+}
+
+hr {
+    height: 1px;
+    margin: 10px 0;
+    border: none;
+    background-color: var(--border-color);
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: 100;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: normal;
+    color: #fff;
+}
+
+label {
+    font-size: 14px;
+    cursor: pointer;
+    color: #fff;
+}
+
+#time-display {
+    font-size: 36px;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+
+#settings-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.with-switch {
+    flex-direction: row;
+    align-items: center;
+}
+
+.color-select {
+    width: 100%;
+}
+
+#selected-timelines, #add-timeline input {
+    color: var(--text-light);
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+}
+
+#selected-timelines {
+    margin-top: 40px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.timeline-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--input-border);
+    color: #ddd;
+}
+
+#add-timeline {
+    display: flex;
+    flex-direction: column;
+}
+
+#add-timeline input {
+    width: 48%;
+    padding: 10px;
+}
+
+.add-button, .reset-button {
+    padding: 12px 24px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+}
+
+.reset-button {
+    margin-top: 30px;
+}
+
+.add-button:hover, .reset-button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Material-UI Overrides */
+.MuiFormControl-root, .MuiInputBase-input, .MuiInputLabel-root, .MuiSelect-root, .MuiSvgIcon-root, .MuiPaper-root, .MuiMenuItem-root {
+    color: var(--text-light) !important;
+    background-color: transparent;
+}
+
+.MuiSelect-root {
+    border-bottom: 1px solid var(--text-light);
+}
+
+.MuiSvgIcon-root, .MuiInputLabel-root {
+    color: #B0B0B0 !important;
+}
+
+.MuiPaper-root {
+    background-color: var(--background-dark) !important;
+}
+
+.MuiMenuItem-root.Mui-selected {
+    background-color: var(--selected-bg) !important;
+}
+
+.MuiMenuItem-root:hover {
+    background-color: var(--hover-bg) !important;
+}
+
+.MuiInput-underline::before, .MuiInput-underline::after, .MuiInput-underline:hover:not(.Mui-disabled)::before {
+    border-bottom-color: var(--border-color) !important;
+}
+
+/* Dropdown styles */
+.MuiFormControl-root, .MuiInputBase-root, .MuiSelect-root {
+    width: 100%;
+}
+
+/* Switch Customization */
+.MuiSwitch-thumb {
+    color: #BDBDBD; /* Lighter blue for the switch knob */
+}
+
+.MuiSwitch-track {
+    background-color: #BBDEFB; /* Lighter blue for the switch track */
+}
+
+.MuiSwitch-colorPrimary.Mui-checked + .MuiSwitch-track,
+.MuiSwitch-colorPrimary.Mui-checked .MuiSwitch-thumb {
+    background-color: #64B5F6;
+}
+
+.MuiSelect-root,
+.MuiSelect-select,
+.MuiSelect-icon {
+    color: #FFFFFF !important; /* Sets the text color to white */
+}
+
+.MuiSwitch-root {
+    margin-left: -8px !important;
+}
+
+.timeline {
+    position: relative;
+    overflow-x: hidden;
+    padding-bottom: 10px;
+
+}
+
+/* Custom styles for the Autocomplete component */
+.MuiAutocomplete-root {
+    color: var(--text-light) !important;
+    margin-left: -1px !important;
+}
+
+.MuiAutocomplete-inputRoot {
+    background-color: var(--input-bg) !important;
+    border-radius: 4px;
+    padding: 0 10px !important;
+    color: var(--text-light) !important;
+    height: 70px; /* Ensure consistent input height */
+    line-height: 1.5; /* Prevent cutting off text */
+}
+
+.MuiAutocomplete-popupIndicator,
+.MuiAutocomplete-clearIndicator {
+    color: #B0B0B0 !important;
+}
+
+.MuiAutocomplete-option {
+    background-color: var(--background-dark) !important;
+    color: var(--text-light) !important;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.MuiAutocomplete-option[aria-selected='true'] {
+    background-color: var(--hover-bg) !important;
+}
+
+.MuiAutocomplete-option:hover {
+    background-color: var(--hover-bg) !important; /* Ensure hover matches the dropdown */
+}
+
+/* Style the TextField placeholder and borders */
+.MuiOutlinedInput-root {
+    border: 1px solid var(--input-border) !important;
+}
+
+.MuiOutlinedInput-input {
+    padding: 10px !important;
+    color: #FFFFFF !important;
+}
+
+.MuiInputLabel-root {
+    color: var(--text-light) !important;
+}
+
+.timeline-form {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    height: 50px; /* Set the row height */
+}
+
+.timeline-form .MuiAutocomplete-root,
+.timeline-form .MuiTextField-root {
+    flex: 1;
+    min-width: 0; /* Ensures the fields shrink properly */
+    margin-bottom: 20px !important; /* Remove any bottom margin */
+}
+
+.timeline-form .MuiAutocomplete-root {
+    flex-basis: 40%; /* Adjust the width of the timezone dropdown */
+}
+
+.timeline-form .MuiTextField-root {
+    flex-basis: 40%; /* Adjust the width of the display name input */
+}
+
+.timeline-form .add-button {
+    flex-basis: 10%; /* Adjust the width of the Add button */
+    padding: 12px 24px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px; /* Ensure the button height matches the input height */
+}
+
+.timeline-form .MuiAutocomplete-root,
+.timeline-form .MuiTextField-root .MuiOutlinedInput-root {
+    background-color: transparent !important; /* Remove the black background */
+    height: 70px; /* Ensure consistent height */
+}
+
+input::placeholder {
+    color: #FFFFFF !important;
+}
+
+/* Disabled Button State */
+.add-button:disabled {
+    background-color: #595959 !important; /* Darker gray color for disabled state */
+    color: #8B8B8B !important; /* Light gray color for text in disabled state */
+    cursor: not-allowed; /* Show the 'not allowed' cursor */
+    box-shadow: none; /* Remove any shadow */
+}
+
+/* Enabled Button State */
+.add-button {
+    color: #FFFFFF; /* White text color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Slightly larger shadow on hover */
+}
+
+.add-button:active {
+    background-color: #003d80; /* Even darker blue on active click */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15); /* Reduced shadow on click */
+}
+
+.MuiAutocomplete-noOptions {
+    color: var(--text-light) !important; /* Set text color to white */
+}
+
+.MuiTextField-root {
+    margin-bottom: 10px !important;
 }

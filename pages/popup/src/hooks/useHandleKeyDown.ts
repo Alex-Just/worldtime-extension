@@ -1,20 +1,22 @@
+import type React from 'react';
 import { useCallback } from 'react';
 
-export const useHandleKeyDown = () => {
-  return useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      const timelineElement = e.currentTarget;
-      const simulatedMouseEvent = new MouseEvent('click', {
-        bubbles: true,
-        cancelable: true,
-        view: window,
-        clientX: timelineElement.getBoundingClientRect().left + timelineElement.clientWidth / 2,
-        clientY: timelineElement.getBoundingClientRect().top + timelineElement.clientHeight / 2,
-      });
-
-      timelineElement.dispatchEvent(simulatedMouseEvent);
-    }
-  }, []);
+const useHandleKeyDown = (onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void) => {
+  return useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        // Simulate a mouse event for the keydown action
+        const simulatedMouseEvent = new MouseEvent('click', {
+          bubbles: true,
+          cancelable: true,
+          clientX: e.currentTarget.getBoundingClientRect().left,
+          clientY: e.currentTarget.getBoundingClientRect().top,
+        });
+        onClick(simulatedMouseEvent as unknown as React.MouseEvent<HTMLDivElement, MouseEvent>);
+      }
+    },
+    [onClick],
+  );
 };
 
 export default useHandleKeyDown;

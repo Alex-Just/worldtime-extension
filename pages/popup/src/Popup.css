@@ -18,8 +18,38 @@ body {
   padding: 0 0 1rem 1rem;
 }
 
-.time-display {
-  text-align: left;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 20px; /* Adjust space between time and buttons */
+}
+
+.top-buttons button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.top-buttons button:hover img {
+  filter: brightness(1.2); /* Increase brightness on hover */
+}
+
+.icon {
+  width: 24px; /* Adjust size as needed */
+  height: 24px;
+}
+
+.icon-button {
+  color: white;
+  margin: 0 8px;
 }
 
 .current-time {
@@ -27,12 +57,13 @@ body {
   font-weight: 100;
   color: #a5a5a5;
   margin-bottom: 3px;
+  margin-left: -5px;
 }
 
 .timeline {
   cursor: pointer;
   position: relative;
-  overflow-x: auto;
+  overflow-x: hidden;
   padding-bottom: 10px;
 }
 
@@ -55,14 +86,13 @@ body {
   font-size: 16px;
   font-weight: 400;
   color: #fff;
-  margin-right: 4px;
+  margin-right: 10px;
 }
 
 .info {
   font-size: 16px;
   font-weight: 400;
   color: #c1c1c1;
-  margin-left: 4px;
 }
 
 .time {
@@ -111,7 +141,7 @@ body {
 
 .new-day {
   color: #fff;
-  font-size: 10px;
+  font-size: 9px;
   position: absolute;
   top: 80%;
   left: 50%;
