@@ -2,10 +2,9 @@ import type { CSSProperties } from 'react';
 
 export const styles: { [key: string]: CSSProperties } = {
   timeZoneWrapper: {
-    width: '100%', // Ensure the wrapper takes the full available width
+    width: '100%',
     marginBottom: '20px',
     position: 'relative',
-    overflow: 'hidden', // Prevent overflowing content
   },
   timeZoneHeader: {
     width: '675px',
@@ -14,7 +13,7 @@ export const styles: { [key: string]: CSSProperties } = {
     alignItems: 'center',
     marginBottom: '1px',
     position: 'relative',
-    paddingRight: '20px',
+    paddingRight: '50px',
   },
   cityInfo: {
     textAlign: 'left' as const,
@@ -24,7 +23,6 @@ export const styles: { [key: string]: CSSProperties } = {
   city: {
     fontSize: '16px',
     fontWeight: 400,
-    color: '#fff',
     marginRight: '10px',
   },
   info: {
@@ -34,13 +32,12 @@ export const styles: { [key: string]: CSSProperties } = {
   },
   time: {
     fontSize: '16px',
-    color: '#fff',
   },
   timeRow: {
-    width: '656px',
+    width: '624px',
     display: 'flex',
     position: 'relative',
-    overflowX: 'auto', // Allow horizontal scroll if content overflows
+    overflow: 'hidden',
     whiteSpace: 'nowrap' as const,
     height: '24px',
     fontSize: '1rem',
@@ -57,7 +54,6 @@ export const styles: { [key: string]: CSSProperties } = {
     justifyContent: 'center',
     minWidth: '26px',
     height: '100%',
-    backgroundColor: 'transparent',
     position: 'relative',
     margin: 0,
     padding: 0,
@@ -81,26 +77,25 @@ export const styles: { [key: string]: CSSProperties } = {
     left: '50%',
     transform: 'translateX(-50%)',
     whiteSpace: 'nowrap' as const,
-    zIndex: 100,
+    zIndex: 200, // Increase z-index to ensure it's on top
     padding: '2px 4px',
     borderRadius: '3px',
   },
   highlight: {
-    backgroundColor: '#3d7fdc',
     color: '#fff',
   },
   midnightHighlight: {
-    backgroundColor: '#8dc3f6',
+    // backgroundColor: '#8dc3f6',
   },
   nighttimeHighlight: {
-    backgroundColor: '#b3d6f6',
+    // backgroundColor: '#b3d6f6',
   },
 
   buttonsContainer: {
     display: 'flex',
     gap: '8px',
     position: 'absolute',
-    right: '-110px', // Align to the right
+    right: '-85px', // Align to the right
     top: '145%',
     transform: 'translateY(-50%)',
     visibility: 'hidden', // Managed with hover state
@@ -108,14 +103,9 @@ export const styles: { [key: string]: CSSProperties } = {
   button: {
     background: 'none',
     border: 'none',
-    color: '#ddd',
     cursor: 'pointer',
     fontSize: '18px',
-    transition: 'color 0.3s ease',
     display: 'flex',
     alignItems: 'center',
-  },
-  buttonHover: {
-    color: '#fff',
   },
 };

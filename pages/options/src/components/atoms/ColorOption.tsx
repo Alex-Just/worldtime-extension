@@ -10,7 +10,7 @@ interface ColorOptionProps {
 
 const ColorOption = ({ label, value, options, onChange }: ColorOptionProps) => {
   const renderSelectedColor = (selectedValue: unknown) => {
-    const selectedColor = options.find(option => option.label === (selectedValue as string));
+    const selectedColor = options.find(option => option.color === (selectedValue as string));
     return (
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Box
@@ -23,7 +23,7 @@ const ColorOption = ({ label, value, options, onChange }: ColorOptionProps) => {
             marginRight: 1,
           }}
         />
-        {selectedValue as string}
+        {selectedColor?.label}
       </Box>
     );
   };
@@ -40,7 +40,7 @@ const ColorOption = ({ label, value, options, onChange }: ColorOptionProps) => {
         renderValue: renderSelectedColor,
       }}>
       {options.map(option => (
-        <MenuItem key={option.label} value={option.label}>
+        <MenuItem key={option.color} value={option.color}>
           <Box
             component="span"
             sx={{

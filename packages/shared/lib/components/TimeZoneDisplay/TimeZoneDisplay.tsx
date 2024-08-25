@@ -1,19 +1,29 @@
-import React, { useState } from 'react';
+import React, { type CSSProperties, useState } from 'react';
 import type { Moment } from 'moment-timezone';
 
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import Typography from '@mui/material/Typography';
 
-import { convertUserHourMoments, dayLabel, getHourClass } from '../../utils';
-import { useShiftPercentage, useTimeZone } from '../../hooks';
-import { styles } from './TimeZoneDisplay.styles';
+import { convertUserHourMoments, dayLabel, getHourClass, getTimezoneInfo, adjustColorLightness } from '../../utils';
+import { useStorageSuspense } from '../../hooks';
+import { useShiftPercentage, useTimeZone } from './hooks';
+import { styles as defaultStyles } from './TimeZoneDisplay.styles';
+import {
+  showTimezoneNameStorage,
+  showTimezoneAbbreviationStorage,
+  showUTCOffsetStorage,
+  showDateLabelsStorage,
+  showDSTFlagStorage,
+  primaryColorStorage,
+  useDarkThemeStorage,
+} from '@extension/storage/lib';
 
 interface TimeZoneDisplayProps {
   timezone: string;
   displayName: string;
-  info: string;
   userHourMoments: Moment[];
   isSettingsScreen?: boolean;
   onRemove?: (timezone: string) => void;
@@ -25,7 +35,6 @@ interface TimeZoneDisplayProps {
 const TimeZoneDisplay = ({
   timezone,
   displayName,
-  info,
   userHourMoments,
   isSettingsScreen = false,
   onRemove,
@@ -36,8 +45,36 @@ const TimeZoneDisplay = ({
   const { time, currentHour } = useTimeZone(timezone);
   const hours = convertUserHourMoments(userHourMoments, timezone);
   const timeRowRef = useShiftPercentage(timezone);
-
+  const showTimezoneName = useStorageSuspense(showTimezoneNameStorage);
+  const showTimezoneAbbreviation = useStorageSuspense(showTimezoneAbbreviationStorage);
+  const showUTCOffset = useStorageSuspense(showUTCOffsetStorage);
+  const showDST = useStorageSuspense(showDSTFlagStorage);
+  const showDateLabels = useStorageSuspense(showDateLabelsStorage);
+  const primaryColor = useStorageSuspense(primaryColorStorage);
+  const timeZoneInfo = getTimezoneInfo(timezone, showTimezoneName, showTimezoneAbbreviation, showUTCOffset, showDST);
   const [isHovered, setIsHovered] = useState(false);
+  const useDarkTheme = useStorageSuspense(useDarkThemeStorage);
+  const buttonColor = useDarkTheme ? '#fff' : '#000';
+
+  const styles: { [key: string]: CSSProperties } = {
+    ...defaultStyles,
+    highlight: {
+      ...defaultStyles.highlight,
+      backgroundColor: primaryColor,
+    },
+    midnightHighlight: {
+      ...defaultStyles.midnightHighlight,
+      backgroundColor: adjustColorLightness(primaryColor, 55),
+    },
+    nighttimeHighlight: {
+      ...defaultStyles.nighttimeHighlight,
+      backgroundColor: adjustColorLightness(primaryColor, 70),
+    },
+    button: {
+      ...defaultStyles.button,
+      color: buttonColor,
+    },
+  };
 
   return (
     <div
@@ -47,9 +84,11 @@ const TimeZoneDisplay = ({
       <div style={styles.timeZoneHeader}>
         <div style={styles.cityInfo}>
           <span style={styles.city}>{displayName}</span>
-          <span style={styles.info}>{info}</span>
+          <span style={styles.info}>{timeZoneInfo}</span>
         </div>
-        <div style={styles.time}>{time}</div>
+        <Typography variant="body1" style={styles.time}>
+          {time}
+        </Typography>
         {isSettingsScreen && (
           <div style={{ ...styles.buttonsContainer, visibility: isHovered ? 'visible' : 'hidden' }}>
             {onEdit && (
@@ -81,7 +120,9 @@ const TimeZoneDisplay = ({
           return (
             <div key={datetime.format('DD HH')} style={{ ...styles.hourContainer, ...styles[hourClass] }}>
               <span style={{ ...styles.hour, ...styles[hourClass] }}>{datetime.hour()}</span>
-              {datetime.hour() === 0 && <span style={styles.newDay}>{dayLabel(datetime, timezone)}</span>}
+              {datetime.hour() === 0 && showDateLabels && (
+                <span style={styles.newDay}>{dayLabel(datetime, timezone)}</span>
+              )}
             </div>
           );
         })}

@@ -1,1 +1,1 @@
-export { default as CurrentTime } from './CurrentTime/CurrentTime';
+export { default as CurrentTimeIndicator } from './CurrentTimeIndicator/CurrentTimeIndicator';

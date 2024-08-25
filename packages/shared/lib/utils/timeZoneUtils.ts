@@ -22,23 +22,54 @@ export const getHourClass = (datetime: Moment, currentHour: number): string => {
     return 'highlight';
   }
   if (datetime.hour() === 0) {
-    return 'midnight-highlight'; // Secondary color for midnight
+    return 'midnightHighlight'; // Secondary color for midnight
   }
   if (datetime.hour() >= 22 || datetime.hour() <= 7) {
-    return 'nighttime-highlight'; // Ternary color for 10 PM to 7 AM
+    return 'nighttimeHighlight'; // Ternary color for 10 PM to 7 AM
   }
   return '';
 };
 
-export const getTimezoneInfo = (timezone: string) => {
+export const getTimezoneInfo = (
+  timezone: string,
+  showTimezoneName: boolean,
+  showAbbreviation: boolean,
+  showUTCOffset: boolean,
+  showDST: string, // "DST", "Hide", or "Summer/Winter"
+) => {
   const now = moment().tz(timezone);
   const isDST = now.isDST();
-  const utcOffset = now.format('Z'); // e.g., "-07:00"
-  const abbreviation = now.format('z'); // e.g., "PDT"
+  const utcOffset = showUTCOffset ? now.format('Z') : ''; // Include UTC offset if allowed
+  const abbreviation = showAbbreviation ? now.format('z') : ''; // Include abbreviation if allowed
 
-  if (timezone === 'UTC') {
-    return 'Universal UTC+00:00';
+  let dstInfo = '';
+  if (showDST === 'DST') {
+    dstInfo = isDST ? 'DST' : '';
+  } else if (showDST === 'Summer/Winter') {
+    dstInfo = isDST ? 'Summer time' : 'Winter time';
   }
 
-  return `${timezone} ${abbreviation} UTC${utcOffset} ${isDST ? 'DST' : ''}`;
+  if (timezone === 'UTC') {
+    return `${showAbbreviation ? 'Universal UTC' : 'Universal'} ${dstInfo}`.trim();
+  }
+
+  let info = '';
+
+  if (showTimezoneName) {
+    info = `${timezone.replace('_', ' ')}`;
+  }
+
+  if (showAbbreviation && abbreviation) {
+    info += ` ${abbreviation}`;
+  }
+
+  if (showUTCOffset && utcOffset) {
+    info += ` UTC${utcOffset}`;
+  }
+
+  if (dstInfo) {
+    info += ` ${dstInfo}`;
+  }
+
+  return info.trim();
 };

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
-import { generateUserHourMoments } from '../../../pages/popup/src/utils/timeUtils';
+import { generateUserHourMoments } from '@extension/shared/lib/utils';
 
 describe('generateUserHourMoments', () => {
   it('should generate 25 moments for each hour of the day in the given timezone', () => {

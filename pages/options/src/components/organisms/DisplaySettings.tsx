@@ -1,19 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { DSTOption, SwitchOption, TimeSelectionOption } from '@src/components/atoms';
-import { showDSTFlagStorage, toggleShowDSTFlag } from '@extension/storage';
+import { DSTOption, SwitchOption } from '@src/components/atoms';
+import { showDSTFlagStorage } from '@extension/storage';
 import { useStorageSuspense } from '@extension/shared';
 
 interface DisplaySettingsProps {
   settings: Array<{ label: string; checked: boolean | string }>;
   onSettingsChange: (label: string) => void;
-  timeStep: string;
-  onTimeStepChange: (timeStep: string) => void;
+  onShowDSTFlagChange: (newValue: 'DST' | 'Hide' | 'Summer/Winter') => void;
 }
 
-const DisplaySettings = ({ settings, onSettingsChange, timeStep, onTimeStepChange }: DisplaySettingsProps) => {
-  const showDSTFlag = useStorageSuspense(showDSTFlagStorage); // Now using showDSTFlag
-  const [dstOption, setDSTOption] = useState(showDSTFlag); // useState now initializes from storage
+const DisplaySettings = ({ settings, onSettingsChange, onShowDSTFlagChange }: DisplaySettingsProps) => {
+  const showDSTFlag = useStorageSuspense(showDSTFlagStorage);
 
   return (
     <div className="section">
@@ -30,18 +28,11 @@ const DisplaySettings = ({ settings, onSettingsChange, timeStep, onTimeStepChang
       )}
       <DSTOption
         label="Show DST (daylight saving time) flag"
-        value={dstOption}
-        onChange={newValue => {
-          setDSTOption(newValue);
-          void toggleShowDSTFlag(); // Use the centralized toggle function
+        value={showDSTFlag}
+        onChange={(newValue: 'DST' | 'Hide' | 'Summer/Winter') => {
+          onShowDSTFlagChange(newValue);
         }}
         options={['Hide', 'DST', 'Summer/Winter']}
-      />
-      <TimeSelectionOption
-        label="Time selection step"
-        value={timeStep}
-        onChange={onTimeStepChange}
-        options={['15 minutes', '30 minutes']}
       />
     </div>
   );

@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, PluginOption } from 'vite';
 import { resolve } from 'path';
 import libAssetsPlugin from '@laynezh/vite-plugin-lib-assets';
 import makeManifestPlugin from './utils/plugins/make-manifest-plugin';
@@ -20,10 +20,10 @@ export default defineConfig({
   plugins: [
     libAssetsPlugin({
       outputPath: outDir,
-    }),
-    watchPublicPlugin(),
-    makeManifestPlugin({ outDir }),
-    isDev && watchRebuildPlugin({ reload: true }),
+    }) as unknown as PluginOption,
+    watchPublicPlugin() as unknown as PluginOption,
+    makeManifestPlugin({ outDir }) as unknown as PluginOption,
+    isDev && watchRebuildPlugin({ reload: true }) as unknown as PluginOption,
   ],
   publicDir: resolve(rootDir, 'public'),
   build: {

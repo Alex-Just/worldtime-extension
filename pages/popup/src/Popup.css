@@ -1,3 +1,9 @@
+/* Define CSS Variables */
+:root {
+  --primary-color: #3874CB; /* Default primary color */
+  --secondary-color: #429488; /* Default secondary color */
+}
+
 body {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   background-color: #424242;
@@ -28,7 +34,7 @@ body {
 .top-buttons {
   display: flex;
   justify-content: space-around;
-  margin-left: 20px; /* Adjust space between time and buttons */
+  margin-left: 20px;
 }
 
 .top-buttons button {
@@ -39,11 +45,11 @@ body {
 }
 
 .top-buttons button:hover img {
-  filter: brightness(1.2); /* Increase brightness on hover */
+  filter: brightness(1.2);
 }
 
 .icon {
-  width: 24px; /* Adjust size as needed */
+  width: 24px;
   height: 24px;
 }
 
@@ -114,20 +120,6 @@ body {
   border-bottom: rgb(48, 48, 48);
 }
 
-.hour-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 26px;
-  height: 100%; /* Ensure the container takes up the full height */
-  background-color: transparent;
-  position: relative;
-  margin: 0; /* Remove any margin */
-  padding: 0; /* Remove any padding */
-  box-sizing: border-box; /* Include padding and borders in width/height calculations */
-}
-
 .hour {
   color: #404040;
   width: 100%; /* Ensure the hour takes up the full width of the container */
@@ -153,16 +145,16 @@ body {
 }
 
 .highlight {
-  background-color: #3d7fdc; /* Primary highlight color */
+  background-color: var(--primary-color); /* Primary highlight color */
   color: #fff;
 }
 
 .midnight-highlight {
-  background-color: #8dc3f6; /* Secondary highlight color for midnight */
+  background-color: var(--primary-color); /* Secondary highlight color for midnight */
 }
 
 .nighttime-highlight {
-  background-color: #b3d6f6; /* Ternary highlight color for 10 PM to 7 AM */
+  background-color: var(--primary-color); /* Ternary highlight color for 10 PM to 7 AM */
 }
 
 .current-time-indicator {
@@ -171,7 +163,7 @@ body {
   height: 100%;
   width: 2px;
   background-color: transparent;
-  border-left: 2px dotted #27a695;
+  /*border-left: 2px dotted var(--secondary-color);*/
   pointer-events: none;
   z-index: 10;
   transition: left 0.15s ease-in-out;
