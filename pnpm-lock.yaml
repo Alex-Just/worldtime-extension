@@ -344,25 +344,6 @@ importers:
         specifier: workspace:*
         version: link:../../packages/vite-config
 
-  pages/devtools-panel:
-    dependencies:
-      '@extension/shared':
-        specifier: workspace:*
-        version: link:../../packages/shared
-      '@extension/storage':
-        specifier: workspace:*
-        version: link:../../packages/storage
-    devDependencies:
-      '@extension/tailwindcss-config':
-        specifier: workspace:*
-        version: link:../../packages/tailwind-config
-      '@extension/tsconfig':
-        specifier: workspace:*
-        version: link:../../packages/tsconfig
-      '@extension/vite-config':
-        specifier: workspace:*
-        version: link:../../packages/vite-config
-
   pages/options:
     dependencies:
       '@emotion/react':
@@ -445,25 +426,6 @@ importers:
       '@types/moment-timezone':
         specifier: ^0.5.30
         version: 0.5.30
-
-  pages/side-panel:
-    dependencies:
-      '@extension/shared':
-        specifier: workspace:*
-        version: link:../../packages/shared
-      '@extension/storage':
-        specifier: workspace:*
-        version: link:../../packages/storage
-    devDependencies:
-      '@extension/tailwindcss-config':
-        specifier: workspace:*
-        version: link:../../packages/tailwind-config
-      '@extension/tsconfig':
-        specifier: workspace:*
-        version: link:../../packages/tsconfig
-      '@extension/vite-config':
-        specifier: workspace:*
-        version: link:../../packages/vite-config
 
 packages:
 

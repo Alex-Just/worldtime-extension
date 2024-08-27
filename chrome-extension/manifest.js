@@ -5,12 +5,7 @@ const packageJson = JSON.parse(fs.readFileSync('../package.json', 'utf8'));
 
 const isFirefox = process.env.__FIREFOX__ === 'true';
 
-const sidePanelConfig = {
-  side_panel: {
-    default_path: 'side-panel/index.html',
-  },
-  permissions: ['sidePanel'],
-};
+const sidePanelConfig = {};
 
 /**
  * After changing, please reload the extension at `chrome://extensions`
