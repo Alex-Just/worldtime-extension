@@ -1,7 +1,8 @@
 <div align="center">
 
 <picture>
-    <img alt="Logo" src="https://github.com/user-attachments/assets/37de1f93-9494-4848-af25-e66373b3602b" />
+    <img alt="Logo" src="https://github.com/user-attachments/assets/905d53fc-a576-460f-b490-d43b200e768b" />
+    <img alt="Logo" src="https://github.com/user-attachments/assets/5726dead-30d7-4d09-a7b7-ce9c2adf7704" />
 </picture>
 
 </div>
