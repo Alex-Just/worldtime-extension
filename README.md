@@ -1,12 +1,3 @@
-<div align="center">
-
-<picture>
-    <img alt="Logo" src="https://github.com/user-attachments/assets/905d53fc-a576-460f-b490-d43b200e768b" />
-    <img alt="Logo" src="https://github.com/user-attachments/assets/5726dead-30d7-4d09-a7b7-ce9c2adf7704" />
-</picture>
-
-</div>
-
 This extension allows you to view the time of day in different regions, with the ability to customize region names and add new ones. Worldtime can display the UTC offset in hours for each timeline and indicate whether Daylight Saving Time (DST) is applied.
 
 ### Main Features
@@ -19,8 +10,19 @@ This extension allows you to view the time of day in different regions, with the
 ![](https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![](https://badges.aleen42.com/src/vitejs.svg)
 
-![GitHub action badge](https://github.com/Alex-Just/worldtime-extension/actions/workflows/build-zip.yml/badge.svg)
-![GitHub action badge](https://github.com/Alex-Just/worldtime-extension/actions/workflows/lint_and_tests.yml/badge.svg)
+[![GitHub action badge](https://github.com/Alex-Just/worldtime-extension/actions/workflows/build-zip.yml/badge.svg?branch=stage)](https://github.com/Alex-Just/worldtime-extension/actions/workflows/build-zip.yml)
+[![GitHub action badge](https://github.com/Alex-Just/worldtime-extension/actions/workflows/lint_and_tests.yml/badge.svg?branch=stage)](https://github.com/Alex-Just/worldtime-extension/actions/workflows/lint_and_tests.yml)
+
+<div align="center">
+
+<picture>
+    <img alt="Logo" src="https://github.com/user-attachments/assets/905d53fc-a576-460f-b490-d43b200e768b" />
+</picture>
+<picture>
+    <img alt="Logo" src="https://github.com/user-attachments/assets/7d3e1bc4-01d9-497f-9509-c051837f0076" />
+</picture>
+
+</div>
 
 ## Table of Contents
 
