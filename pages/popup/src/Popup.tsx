@@ -6,6 +6,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
+import { t } from '@extension/i18n';
 import { useDarkThemeStorage } from '@extension/storage/lib';
 import { CurrentTime, TimeZoneDisplay } from '@extension/shared/lib/components';
 import { useGetTimezones, useStorageSuspense } from '@extension/shared/lib/hooks';
@@ -34,22 +35,22 @@ const Popup = () => {
         <div className="header">
           <CurrentTime />
           <div className="top-buttons">
-            <Tooltip title="-6 Hours">
+            <Tooltip title={t('shiftTimeBack')}>
               <IconButton onClick={() => handleShiftTime(-6)}>
                 <ArrowBackIcon className="icon-button" />
               </IconButton>
             </Tooltip>
-            <Tooltip title="Now">
+            <Tooltip title={t('shiftTimeNow')}>
               <IconButton onClick={() => handleShiftTime(0)}>
                 <CenterFocusWeakIcon className="icon-button" />
               </IconButton>
             </Tooltip>
-            <Tooltip title="+6 Hours">
+            <Tooltip title={t('shiftTimeForward')}>
               <IconButton onClick={() => handleShiftTime(6)}>
                 <ArrowForwardIcon className="icon-button" />
               </IconButton>
             </Tooltip>
-            <Tooltip title="Settings">
+            <Tooltip title={t('settings')}>
               <IconButton onClick={() => chrome.runtime.openOptionsPage()}>
                 <SettingsIcon className="icon-button" />
               </IconButton>

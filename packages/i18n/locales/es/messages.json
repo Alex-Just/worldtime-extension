@@ -1,0 +1,171 @@
+{
+  "extensionDescription": {
+    "description": "Extension description",
+    "message": "Worldtime extension for Google Chrome and Firefox"
+  },
+  "extensionName": {
+    "description": "Extension name",
+    "message": "Worldtime"
+  },
+  "toggleTheme": {
+    "message": "Cambiar tema"
+  },
+  "loading": {
+    "message": "Cargando..."
+  },
+  "greeting": {
+    "description": "Greeting message",
+    "message": "Hola, mi nombre es $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Juan Pérez"
+      }
+    }
+  },
+  "hello": {
+    "description": "Placeholder example",
+    "message": "Hola $1"
+  },
+  "resetToDefault": {
+    "message": "RESTABLECER A VALORES PREDETERMINADOS"
+  },
+  "displaySettings": {
+    "message": "Configuración de pantalla"
+  },
+  "userInterface": {
+    "message": "Interfaz de usuario"
+  },
+  "showDSTFlag": {
+    "message": "Mostrar bandera de horario de verano (DST)"
+  },
+  "hide": {
+    "message": "Ocultar"
+  },
+  "dst": {
+    "message": "DST"
+  },
+  "summerWinter": {
+    "message": "Verano/Invierno"
+  },
+  "showTimezoneName": {
+    "message": "Mostrar nombre de la zona horaria"
+  },
+  "showTimezoneAbbreviation": {
+    "message": "Mostrar abreviatura de la zona horaria (si está disponible)"
+  },
+  "showUTCOffset": {
+    "message": "Mostrar diferencia horaria UTC"
+  },
+  "showDateLabels": {
+    "message": "Mostrar etiquetas de fecha"
+  },
+  "showExportPanel": {
+    "message": "Mostrar panel de exportación (en la parte inferior)"
+  },
+  "theme": {
+    "message": "Tema"
+  },
+  "useDarkTheme": {
+    "message": "Usar tema oscuro"
+  },
+  "useDarkIcon": {
+    "message": "Usar icono oscuro"
+  },
+  "primaryColor": {
+    "message": "Color primario"
+  },
+  "secondaryColor": {
+    "message": "Color secundario"
+  },
+  "red": {
+    "message": "Rojo"
+  },
+  "pink": {
+    "message": "Rosa"
+  },
+  "purple": {
+    "message": "Púrpura"
+  },
+  "deepPurple": {
+    "message": "Púrpura oscuro"
+  },
+  "indigo": {
+    "message": "Índigo"
+  },
+  "blue": {
+    "message": "Azul"
+  },
+  "lightBlue": {
+    "message": "Azul claro"
+  },
+  "cyan": {
+    "message": "Cian"
+  },
+  "teal": {
+    "message": "Verde azulado"
+  },
+  "green": {
+    "message": "Verde"
+  },
+  "lightGreen": {
+    "message": "Verde claro"
+  },
+  "lime": {
+    "message": "Lima"
+  },
+  "yellow": {
+    "message": "Amarillo"
+  },
+  "amber": {
+    "message": "Ámbar"
+  },
+  "orange": {
+    "message": "Naranja"
+  },
+  "deepOrange": {
+    "message": "Naranja oscuro"
+  },
+  "brown": {
+    "message": "Marrón"
+  },
+  "grey": {
+    "message": "Gris"
+  },
+  "blueGrey": {
+    "message": "Gris azulado"
+  },
+  "selectedTimelinesTitle": {
+    "message": "Tiempos seleccionados"
+  },
+  "editTimelineTitle": {
+    "message": "Editar línea de tiempo"
+  },
+  "addNewTimelineTitle": {
+    "message": "Agregar una nueva línea de tiempo"
+  },
+  "chooseTimezonePlaceholder": {
+    "message": "Elige una zona horaria"
+  },
+  "enterNamePlaceholder": {
+    "message": "Ingresa el nombre a mostrar"
+  },
+  "saveButton": {
+    "message": "GUARDAR"
+  },
+  "addButton": {
+    "message": "AGREGAR"
+  },
+  "shiftTimeBack": {
+    "message": "-6 Horas"
+  },
+  "shiftTimeNow": {
+    "message": "Ahora"
+  },
+  "shiftTimeForward": {
+    "message": "+6 Horas"
+  },
+  "settings": {
+    "message": "Configuración"
+  }
+}

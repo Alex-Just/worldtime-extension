@@ -1,6 +1,9 @@
 import React from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
+import { t } from '@extension/i18n';
+import type { MessageKey } from '@extension/i18n/lib/type';
+
 import { useStorageSuspense, withErrorBoundary, withSuspense } from '@extension/shared';
 import { CurrentTime } from '@extension/shared/lib/components';
 import {
@@ -44,34 +47,12 @@ const Options = () => {
     },
   });
 
-  const displaySettings = [
-    { label: 'Show Timezone name', checked: showTimezoneName },
-    { label: 'Show Timezone abbreviation (if available)', checked: showTimezoneAbbreviation },
-    { label: 'Show UTC offset', checked: showUTCOffset },
-    { label: 'Show date labels', checked: showDateLabels },
-    { label: 'Show DST flag', checked: showDSTFlag },
-  ];
-
-  const colorOptions = [
-    { label: 'Red', color: '#F44336' },
-    { label: 'Pink', color: '#E91E63' },
-    { label: 'Purple', color: '#9C27B0' },
-    { label: 'Deep Purple', color: '#673AB7' },
-    { label: 'Indigo', color: '#3F51B5' },
-    { label: 'Blue', color: '#3874CB' },
-    { label: 'Light Blue', color: '#03A9F4' },
-    { label: 'Cyan', color: '#00BCD4' },
-    { label: 'Teal', color: '#429488' },
-    { label: 'Green', color: '#4CAF50' },
-    { label: 'Light Green', color: '#8BC34A' },
-    { label: 'Lime', color: '#CDDC39' },
-    { label: 'Yellow', color: '#FFEB3B' },
-    { label: 'Amber', color: '#FFC107' },
-    { label: 'Orange', color: '#FF9800' },
-    { label: 'Deep Orange', color: '#FF5722' },
-    { label: 'Brown', color: '#795548' },
-    { label: 'Grey', color: '#9E9E9E' },
-    { label: 'Blue Grey', color: '#607D8B' },
+  const displaySettings: Array<{ label: MessageKey; checked: boolean | string }> = [
+    { label: 'showTimezoneName', checked: showTimezoneName },
+    { label: 'showTimezoneAbbreviation', checked: showTimezoneAbbreviation },
+    { label: 'showUTCOffset', checked: showUTCOffset },
+    { label: 'showDateLabels', checked: showDateLabels },
+    { label: 'showDSTFlag', checked: showDSTFlag },
   ];
 
   return (
@@ -79,7 +60,7 @@ const Options = () => {
       <div className={useDarkTheme ? 'container dark-theme' : 'container light-theme'}>
         <CurrentTime />
         <hr />
-        <h1>Display Settings</h1>
+        <h1>{t('displaySettings')}</h1>
 
         <SettingsSections
           displaySettings={displaySettings}
@@ -109,7 +90,6 @@ const Options = () => {
           secondaryColor={secondaryColor}
           onPrimaryColorChange={color => primaryColorStorage.set(color)}
           onSecondaryColorChange={color => secondaryColorStorage.set(color)}
-          colorOptions={colorOptions}
         />
 
         <SelectedTimelines />
@@ -133,7 +113,7 @@ const Options = () => {
               timezonesStorage.set(defaultTimezones),
             ]);
           }}>
-          RESET TO DEFAULT
+          {t('resetToDefault')}
         </Button>
       </div>
     </ThemeProvider>

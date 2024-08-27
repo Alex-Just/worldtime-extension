@@ -26,5 +26,146 @@
   "hello": {
     "description": "Placeholder example",
     "message": "Hello $1"
+  },
+  "resetToDefault": {
+    "message": "RESET TO DEFAULT"
+  },
+  "displaySettings": {
+    "message": "Display Settings"
+  },
+  "userInterface": {
+    "message": "User Interface"
+  },
+  "showDSTFlag": {
+    "message": "Show DST (daylight saving time) flag"
+  },
+  "hide": {
+    "message": "Hide"
+  },
+  "dst": {
+    "message": "DST"
+  },
+  "summerWinter": {
+    "message": "Summer/Winter"
+  },
+  "showTimezoneName": {
+    "message": "Show Timezone name"
+  },
+  "showTimezoneAbbreviation": {
+    "message": "Show Timezone abbreviation (if available)"
+  },
+  "showUTCOffset": {
+    "message": "Show UTC offset"
+  },
+  "showDateLabels": {
+    "message": "Show date labels"
+  },
+  "showExportPanel": {
+    "message": "Show export panel (at the bottom)"
+  },
+  "theme": {
+    "message": "Theme"
+  },
+  "useDarkTheme": {
+    "message": "Use dark theme"
+  },
+  "useDarkIcon": {
+    "message": "Use dark icon"
+  },
+  "primaryColor": {
+    "message": "Primary color"
+  },
+  "secondaryColor": {
+    "message": "Secondary color"
+  },
+  "red": {
+    "message": "Red"
+  },
+  "pink": {
+    "message": "Pink"
+  },
+  "purple": {
+    "message": "Purple"
+  },
+  "deepPurple": {
+    "message": "Deep Purple"
+  },
+  "indigo": {
+    "message": "Indigo"
+  },
+  "blue": {
+    "message": "Blue"
+  },
+  "lightBlue": {
+    "message": "Light Blue"
+  },
+  "cyan": {
+    "message": "Cyan"
+  },
+  "teal": {
+    "message": "Teal"
+  },
+  "green": {
+    "message": "Green"
+  },
+  "lightGreen": {
+    "message": "Light Green"
+  },
+  "lime": {
+    "message": "Lime"
+  },
+  "yellow": {
+    "message": "Yellow"
+  },
+  "amber": {
+    "message": "Amber"
+  },
+  "orange": {
+    "message": "Orange"
+  },
+  "deepOrange": {
+    "message": "Deep Orange"
+  },
+  "brown": {
+    "message": "Brown"
+  },
+  "grey": {
+    "message": "Grey"
+  },
+  "blueGrey": {
+    "message": "Blue Grey"
+  },
+  "selectedTimelinesTitle": {
+    "message": "Selected timelines"
+  },
+  "editTimelineTitle": {
+    "message": "Edit timeline"
+  },
+  "addNewTimelineTitle": {
+    "message": "Add a new timeline"
+  },
+  "chooseTimezonePlaceholder": {
+    "message": "Choose timezone"
+  },
+  "enterNamePlaceholder": {
+    "message": "Enter name to display"
+  },
+  "saveButton": {
+    "message": "SAVE"
+  },
+  "addButton": {
+    "message": "ADD"
+  },
+  "shiftTimeBack": {
+    "message": "-6 Hours"
+  },
+  "shiftTimeNow": {
+    "message": "Now"
+  },
+  "shiftTimeForward": {
+    "message": "+6 Hours"
+  },
+  "settings": {
+    "message": "Settings"
   }
 }

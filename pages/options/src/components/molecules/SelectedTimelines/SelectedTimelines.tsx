@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { t } from '@extension/i18n';
+
 import { TimeZoneDisplay } from '@extension/shared/lib/components';
 import { generateUserHourMoments } from '@extension/shared/lib/utils';
 import { AddTimelineInput } from '@src/components/molecules';
@@ -26,7 +28,7 @@ const SelectedTimelines = () => {
 
   return (
     <div>
-      <h1>Selected timelines</h1>
+      <h1>{t('selectedTimelinesTitle')}</h1>
       <div style={styles.timeline} role="button" tabIndex={0}>
         {timezones.map(({ timezone, displayName }) => (
           <TimeZoneDisplay

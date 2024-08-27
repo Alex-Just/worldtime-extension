@@ -1,5 +1,8 @@
 import React from 'react';
+
 import { Autocomplete, TextField, Button } from '@mui/material';
+
+import { t } from '@extension/i18n';
 
 import { useSaveHandler } from './hooks';
 import { styles } from './AddTimelineInput.styles';
@@ -16,21 +19,10 @@ const AddTimelineInput = ({ initialTimezone, initialDisplayName, onSaveComplete 
   const { timezone, setTimezone, timezones, displayName, setDisplayName, onSave, isEditing, setIsEditing } =
     useSaveHandler(initialTimezone, initialDisplayName, onSaveComplete);
   const secondaryColor = useStorageSuspense(secondaryColorStorage);
-  console.log(
-    'AddTimelineInput',
-    'initialTimezone: ',
-    initialTimezone,
-    'initialDisplayName: ',
-    initialDisplayName,
-    'displayName: ',
-    displayName,
-    'timezone:',
-    timezone,
-  );
 
   return (
     <div id="add-timeline" style={styles.addTimelineContainer}>
-      <h1>{isEditing ? 'Edit timeline' : 'Add a new timeline'}</h1>
+      <h1>{isEditing ? t('editTimelineTitle') : t('addNewTimelineTitle')}</h1>
       <div className="timeline-form" style={styles.timelineForm}>
         <Autocomplete
           options={timezones}
@@ -52,7 +44,7 @@ const AddTimelineInput = ({ initialTimezone, initialDisplayName, onSaveComplete 
           renderInput={params => (
             <TextField
               {...params}
-              placeholder="Choose timezone"
+              placeholder={t('chooseTimezonePlaceholder')}
               variant="outlined"
               fullWidth
               InputProps={{
@@ -66,7 +58,7 @@ const AddTimelineInput = ({ initialTimezone, initialDisplayName, onSaveComplete 
         <TextField
           value={displayName}
           onChange={e => setDisplayName(e.target.value)}
-          placeholder="Enter name to display"
+          placeholder={t('enterNamePlaceholder')}
           variant="outlined"
           fullWidth
           style={styles.textField}
@@ -80,7 +72,7 @@ const AddTimelineInput = ({ initialTimezone, initialDisplayName, onSaveComplete 
             ...styles.button,
             backgroundColor: isEditing ? secondaryColor : undefined,
           }}>
-          {isEditing ? 'SAVE' : 'ADD'}
+          {isEditing ? t('saveButton') : t('addButton')}
         </Button>
       </div>
     </div>

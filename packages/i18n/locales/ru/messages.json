@@ -1,0 +1,171 @@
+{
+  "extensionDescription": {
+    "description": "Extension description",
+    "message": "Worldtime extension for Google Chrome and Firefox"
+  },
+  "extensionName": {
+    "description": "Extension name",
+    "message": "Worldtime"
+  },
+  "toggleTheme": {
+    "message": "Переключить тему"
+  },
+  "loading": {
+    "message": "Загрузка..."
+  },
+  "greeting": {
+    "description": "Greeting message",
+    "message": "Здравствуйте, меня зовут $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Петя Иванов"
+      }
+    }
+  },
+  "hello": {
+    "description": "Placeholder example",
+    "message": "Здравствуйте $1"
+  },
+  "resetToDefault": {
+    "message": "СБРОСИТЬ НАСТРОЙКИ"
+  },
+  "displaySettings": {
+    "message": "Настройки отображения"
+  },
+  "userInterface": {
+    "message": "Пользовательский интерфейс"
+  },
+  "showDSTFlag": {
+    "message": "Показать флаг перехода на летнее время (DST)"
+  },
+  "hide": {
+    "message": "Скрыть"
+  },
+  "dst": {
+    "message": "DST"
+  },
+  "summerWinter": {
+    "message": "Лето/Зима"
+  },
+  "showTimezoneName": {
+    "message": "Показать название часового пояса"
+  },
+  "showTimezoneAbbreviation": {
+    "message": "Показать аббревиатуру часового пояса (если доступно)"
+  },
+  "showUTCOffset": {
+    "message": "Показать смещение UTC"
+  },
+  "showDateLabels": {
+    "message": "Показать метки дат"
+  },
+  "showExportPanel": {
+    "message": "Показать панель экспорта (внизу)"
+  },
+  "theme": {
+    "message": "Тема"
+  },
+  "useDarkTheme": {
+    "message": "Использовать темную тему"
+  },
+  "useDarkIcon": {
+    "message": "Использовать темную иконку"
+  },
+  "primaryColor": {
+    "message": "Основной цвет"
+  },
+  "secondaryColor": {
+    "message": "Вторичный цвет"
+  },
+  "red": {
+    "message": "Красный"
+  },
+  "pink": {
+    "message": "Розовый"
+  },
+  "purple": {
+    "message": "Фиолетовый"
+  },
+  "deepPurple": {
+    "message": "Темно-фиолетовый"
+  },
+  "indigo": {
+    "message": "Индиго"
+  },
+  "blue": {
+    "message": "Синий"
+  },
+  "lightBlue": {
+    "message": "Голубой"
+  },
+  "cyan": {
+    "message": "Бирюзовый"
+  },
+  "teal": {
+    "message": "Зеленовато-синий"
+  },
+  "green": {
+    "message": "Зеленый"
+  },
+  "lightGreen": {
+    "message": "Светло-зеленый"
+  },
+  "lime": {
+    "message": "Лаймовый"
+  },
+  "yellow": {
+    "message": "Желтый"
+  },
+  "amber": {
+    "message": "Янтарный"
+  },
+  "orange": {
+    "message": "Оранжевый"
+  },
+  "deepOrange": {
+    "message": "Темно-оранжевый"
+  },
+  "brown": {
+    "message": "Коричневый"
+  },
+  "grey": {
+    "message": "Серый"
+  },
+  "blueGrey": {
+    "message": "Сине-серый"
+  },
+  "selectedTimelinesTitle": {
+    "message": "Выбранные часовые пояса"
+  },
+  "editTimelineTitle": {
+    "message": "Редактировать часовой пояс"
+  },
+  "addNewTimelineTitle": {
+    "message": "Добавить новый часовой пояс"
+  },
+  "chooseTimezonePlaceholder": {
+    "message": "Выберите часовой пояс"
+  },
+  "enterNamePlaceholder": {
+    "message": "Введите название"
+  },
+  "saveButton": {
+    "message": "СОХРАНИТЬ"
+  },
+  "addButton": {
+    "message": "ДОБАВИТЬ"
+  },
+  "shiftTimeBack": {
+    "message": "-6 Часов"
+  },
+  "shiftTimeNow": {
+    "message": "Сейчас"
+  },
+  "shiftTimeForward": {
+    "message": "+6 Часов"
+  },
+  "settings": {
+    "message": "Настройки"
+  }
+}

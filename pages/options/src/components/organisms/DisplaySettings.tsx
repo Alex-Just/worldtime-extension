@@ -1,12 +1,15 @@
 import React from 'react';
 
+import { t } from '@extension/i18n';
+import type { MessageKey } from '@extension/i18n/lib/type';
+
 import { DSTOption, SwitchOption } from '@src/components/atoms';
 import { showDSTFlagStorage } from '@extension/storage';
 import { useStorageSuspense } from '@extension/shared';
 
 interface DisplaySettingsProps {
-  settings: Array<{ label: string; checked: boolean | string }>;
-  onSettingsChange: (label: string) => void;
+  settings: Array<{ label: MessageKey; checked: boolean | string }>;
+  onSettingsChange: (label: MessageKey) => void;
   onShowDSTFlagChange: (newValue: 'DST' | 'Hide' | 'Summer/Winter') => void;
 }
 
@@ -15,24 +18,24 @@ const DisplaySettings = ({ settings, onSettingsChange, onShowDSTFlagChange }: Di
 
   return (
     <div className="section">
-      <h2>User Interface</h2>
+      <h2>{t('userInterface')}</h2>
       {settings.map(setting =>
         typeof setting.checked === 'boolean' ? (
           <SwitchOption
             key={setting.label}
-            label={setting.label}
+            label={t(setting.label)}
             checked={setting.checked}
             onChange={() => onSettingsChange(setting.label)}
           />
         ) : null,
       )}
       <DSTOption
-        label="Show DST (daylight saving time) flag"
+        label={t('showDSTFlag')}
         value={showDSTFlag}
         onChange={(newValue: 'DST' | 'Hide' | 'Summer/Winter') => {
           onShowDSTFlagChange(newValue);
         }}
-        options={['Hide', 'DST', 'Summer/Winter']}
+        options={[t('hide'), t('dst'), t('summerWinter')]}
       />
     </div>
   );

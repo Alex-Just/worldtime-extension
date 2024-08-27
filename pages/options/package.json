@@ -24,7 +24,8 @@
     "@extension/storage": "workspace:*",
     "@extension/ui": "workspace:*",
     "@mui/material": "^5.16.7",
-    "moment-timezone": "^0.5.45"
+    "moment-timezone": "^0.5.45",
+    "@extension/i18n": "workspace:*"
   },
   "devDependencies": {
     "@extension/tailwindcss-config": "workspace:*",

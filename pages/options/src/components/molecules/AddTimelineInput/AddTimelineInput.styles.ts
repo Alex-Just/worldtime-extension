@@ -12,7 +12,7 @@ export const styles: { [key: string]: CSSProperties } = {
     height: '50px',
   },
   autocompleteRoot: {
-    flexBasis: '40%',
+    flex: 8,
   },
   option: {
     display: 'flex',
@@ -33,9 +33,11 @@ export const styles: { [key: string]: CSSProperties } = {
   inputLabelProps: {},
   textField: {
     height: '50px',
-    flex: 1,
+    flex: 3,
   },
   button: {
     height: '50px',
+    flex: 1,
+    fontSize: '13px',
   },
 };

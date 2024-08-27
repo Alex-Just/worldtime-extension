@@ -1,17 +1,18 @@
 import React from 'react';
 
+import type { MessageKey } from '@extension/i18n/lib/type';
+
 import { ThemeSelector } from '@src/components/molecules';
 import { DisplaySettings } from '@src/components/organisms';
 
 interface SettingsSectionsProps {
-  displaySettings: Array<{ label: string; checked: boolean | string }>;
+  displaySettings: Array<{ label: MessageKey; checked: boolean | string }>;
   onDisplaySettingsChange: (label: string) => void;
   primaryColor: string;
   secondaryColor: string;
   onPrimaryColorChange: (color: string) => void;
   onSecondaryColorChange: (color: string) => void;
   onShowDSTFlagChange: (newValue: 'DST' | 'Hide' | 'Summer/Winter') => void;
-  colorOptions: Array<{ label: string; color: string }>;
 }
 
 const SettingsSections = ({
@@ -22,7 +23,6 @@ const SettingsSections = ({
   onPrimaryColorChange,
   onSecondaryColorChange,
   onShowDSTFlagChange,
-  colorOptions,
 }: SettingsSectionsProps) => (
   <div id="settings-sections">
     <DisplaySettings
@@ -35,7 +35,6 @@ const SettingsSections = ({
       secondaryColor={secondaryColor}
       onPrimaryColorChange={onPrimaryColorChange}
       onSecondaryColorChange={onSecondaryColorChange}
-      colorOptions={colorOptions}
     />
   </div>
 );
