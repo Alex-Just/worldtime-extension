@@ -23,7 +23,7 @@
     "@extension/shared": "workspace:*",
     "@extension/storage": "workspace:*",
     "@extension/ui": "workspace:*",
-    "@mui/material": "^5.16.7",
+    "@mui/material": "^6.0.1",
     "moment-timezone": "^0.5.45",
     "@extension/i18n": "workspace:*"
   },
