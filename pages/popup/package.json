@@ -24,7 +24,7 @@
     "@mui/icons-material": "^5.16.7",
     "@mui/material": "^6.0.1",
     "@types/material-ui": "^0.21.17",
-    "@types/node": "^22.5.4",
+    "@types/node": "^22.5.5",
     "material-design-icons": "^3.0.1",
     "material-ui-icons": "1.0.0-beta.36",
     "moment-timezone": "^0.5.45",
