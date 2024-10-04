@@ -21,7 +21,7 @@
     "@extension/content-runtime-script": "workspace:*",
     "@extension/shared": "workspace:*",
     "@extension/storage": "workspace:*",
-    "@mui/icons-material": "^5.16.7",
+    "@mui/icons-material": "^6.1.1",
     "@mui/material": "^6.0.1",
     "@types/material-ui": "^0.21.17",
     "@types/node": "^22.5.5",
