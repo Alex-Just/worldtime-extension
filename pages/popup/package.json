@@ -27,7 +27,7 @@
     "@types/node": "^22.5.5",
     "material-design-icons": "^3.0.1",
     "material-ui-icons": "1.0.0-beta.36",
-    "moment-timezone": "^0.5.45",
+    "moment-timezone": "^0.5.46",
     "@extension/i18n": "workspace:*"
   },
   "devDependencies": {

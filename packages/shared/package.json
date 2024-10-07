@@ -18,7 +18,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "moment-timezone": "^0.5.45",
+    "moment-timezone": "^0.5.46",
     "@mui/icons-material": "^6.1.1",
     "@mui/material": "^6.0.1",
     "@types/material-ui": "^0.21.17",
