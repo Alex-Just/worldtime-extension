@@ -30,7 +30,7 @@
     "@laynezh/vite-plugin-lib-assets": "^0.5.24",
     "@types/ws": "^8.5.12",
     "deepmerge": "^4.3.1",
-    "magic-string": "^0.30.11",
+    "magic-string": "^0.30.12",
     "ts-loader": "^9.5.1",
     "vitest": "^2.1.1"
   }
