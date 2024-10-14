@@ -25,8 +25,8 @@ importers:
         specifier: ^18.3.5
         version: 18.3.5
       '@types/react-dom':
-        specifier: ^18.3.0
-        version: 18.3.0
+        specifier: ^18.3.1
+        version: 18.3.1
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.18.0
         version: 7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(typescript@5.6.2)
@@ -1393,8 +1393,8 @@ packages:
   '@types/react-addons-linked-state-mixin@0.14.27':
     resolution: {integrity: sha512-yVxzQcKDiq32uziGQ/ka586qSFxz2ePYZ3dTCp4JHJKk/E6M0LP0R28ft3oFAnTGJRFBAB3if3pkP8w57Y04IA==}
 
-  '@types/react-dom@18.3.0':
-    resolution: {integrity: sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==}
+  '@types/react-dom@18.3.1':
+    resolution: {integrity: sha512-qW1Mfv8taImTthu4KoXgDfLuk4bydU6Q/TkADnDWWHwi4NX4BR+LWfTp2sVmTqRrsHvyDDTelgelxJ+SsejKKQ==}
 
   '@types/react-transition-group@2.9.2':
     resolution: {integrity: sha512-5Fv2DQNO+GpdPZcxp2x/OQG/H19A01WlmpjVD9cKvVFmoVLOZ9LvBgSWG6pSXIU4og5fgbvGPaCV5+VGkWAEHA==}
@@ -4528,7 +4528,7 @@ snapshots:
   '@types/create-react-class@15.6.8':
     dependencies:
       '@types/prop-types': 15.7.12
-      '@types/react': 18.3.4
+      '@types/react': 18.3.5
 
   '@types/estree@1.0.5': {}
 
@@ -4575,9 +4575,9 @@ snapshots:
   '@types/react-addons-linked-state-mixin@0.14.27':
     dependencies:
       '@types/create-react-class': 15.6.8
-      '@types/react': 18.3.4
+      '@types/react': 18.3.5
 
-  '@types/react-dom@18.3.0':
+  '@types/react-dom@18.3.1':
     dependencies:
       '@types/react': 18.3.5
 
@@ -4587,7 +4587,7 @@ snapshots:
 
   '@types/react-transition-group@4.4.11':
     dependencies:
-      '@types/react': 18.3.4
+      '@types/react': 18.3.5
 
   '@types/react@18.3.4':
     dependencies:
