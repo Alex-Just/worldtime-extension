@@ -32,6 +32,6 @@
     "deepmerge": "^4.3.1",
     "magic-string": "^0.30.12",
     "ts-loader": "^9.5.1",
-    "vitest": "^2.1.1"
+    "vitest": "^2.1.3"
   }
 }
