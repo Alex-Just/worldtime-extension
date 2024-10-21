@@ -22,7 +22,7 @@
     "@extension/shared": "workspace:*",
     "@extension/storage": "workspace:*",
     "@mui/icons-material": "^6.1.1",
-    "@mui/material": "^6.0.1",
+    "@mui/material": "^6.1.4",
     "@types/material-ui": "^0.21.17",
     "@types/node": "^22.7.4",
     "material-design-icons": "^3.0.1",
