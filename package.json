@@ -28,13 +28,13 @@
   },
   "type": "module",
   "dependencies": {
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.293",
     "@types/node": "^22.7.4",
-    "@types/react": "^18.3.11",
+    "@types/react": "^19.0.8",
     "@types/react-dom": "^18.3.1",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
